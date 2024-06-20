@@ -15,8 +15,8 @@ class Config:
     SOLANA_PRIVATE_KEY = "2UKaqHjSS28pxdziYvnVWd2QY2Jyp4uZmBa8LmuJcQgKLNftFGBVrA9GEHKybWFEwjZqwLwFd9m2Fr3BD5Qjeyoh"
     DATABASE_URI = "mongodb+srv://quinnlee1020:4Dm4y1Kdj8gAiecD@cluster0.urm6i4n.mongodb.net/wonkaTelegram"
     
-    EVM_TRADE_API = 'http://localhost:3000/api/trade/evm'
-    SOLANA_TRADE_API = 'http://localhost:3000/api/trade/solana'
+    EVM_TRADE_API = 'http://auction.chocolatefactory.gg/api/trade/evm'
+    SOLANA_TRADE_API = 'http://auction.chocolatefactory.gg/api/trade/solana'
     
     with open('./abi/token.json', 'r') as abi_file:
         TOKEN_CONTRACT_ABI = json.load(abi_file)
