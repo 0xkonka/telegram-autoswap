@@ -7,3 +7,4 @@ Pyrogram==2.0.106
 # solders==0.21.0
 web3==6.19.0
 solana==0.32.0
+tgcrypto==1.2.5
