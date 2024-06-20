@@ -80,8 +80,8 @@ async def get_trade_token_balance(wallet):
         f"EVM Wallet Address: {wallet.evm_wallet_address}\n"
         f"EVM base token Balance: {evm_base_balance} \n"
         f"EVM base quote Balance: {evm_quote_balance} \n"
-        f"Solana Wallet Address: {wallet.solana_wallet_address}\n"
-        f"SOL base spl Balance: {sol_base_balance} ETH\n"
-        f"SOL quote spl Balance: {sol_quote_balance} ETH\n"
+        # f"Solana Wallet Address: {wallet.solana_wallet_address}\n"
+        # f"SOL base spl Balance: {sol_base_balance} \n"
+        # f"SOL quote spl Balance: {sol_quote_balance} \n"
     )
 
