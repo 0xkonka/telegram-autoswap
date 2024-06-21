@@ -15,4 +15,6 @@ MENU_MESSAGE = """
 /balance_gas : check wallet gas balances
 /balance_trade : check wallet trade token balances
 /trade : auto trade on EVM/Solana network
+/stop_evm : stop auto trade on EVM network
+/stop_solana : stop auto trade on Solana network
 """

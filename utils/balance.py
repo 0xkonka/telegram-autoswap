@@ -37,7 +37,7 @@ async def get_gas_balance(wallet):
         f"SOL Balance: {sol_balance} SOL\n"
     )
 
-async def get_trade_token_balance(wallet):
+async def get_evm_trade_token_balance(wallet):
     
     evm_base_balance = 0
     evm_quote_balance = 0
@@ -47,12 +47,15 @@ async def get_trade_token_balance(wallet):
     if not wallet:
         return "Wallet not found. Please create or import a wallet first."
     
-    evm_tokens = await evm_get_tokens()
-    solana_tokens = await solana_get_tokens()
+    # evm_tokens = await evm_get_tokens()
+    # solana_tokens = await solana_get_tokens()
+    
+    baseToken = "0x9848422A708960e6f416f719006328077Ad1816A"
+    quoteToken = "0xB88b5F025382AaDaC2F87A01f950223e7Ee68a1b"
     
     if wallet.evm_wallet_address :
-        evm_base_balance = await SmartContract().get_token_balance(wallet.evm_wallet_address , evm_tokens['data']['baseToken'])
-        evm_quote_balance = await SmartContract().get_token_balance(wallet.evm_wallet_address , evm_tokens['data']['quoteToken'])
+        evm_base_balance = await SmartContract().get_token_balance(wallet.evm_wallet_address , baseToken)
+        evm_quote_balance = await SmartContract().get_token_balance(wallet.evm_wallet_address , quoteToken)
     
     # if wallet.solana_wallet_address :
     #     client = AsyncClient(Config.NETWORKS[Config.solana_network])
@@ -77,9 +80,11 @@ async def get_trade_token_balance(wallet):
     #     await client.close()
         
     return (
-        f"EVM Wallet Address: {wallet.evm_wallet_address}\n"
-        f"EVM base token Balance: {evm_base_balance} \n"
-        f"EVM base quote Balance: {evm_quote_balance} \n"
+        f"Wallet: {wallet.evm_wallet_address}\n"
+        f"base token: {baseToken} \n"
+        f"base token Balance: {evm_base_balance} \n"
+        f"quote token: {quoteToken} \n"
+        f"quote token Balance: {evm_quote_balance} \n"
         # f"Solana Wallet Address: {wallet.solana_wallet_address}\n"
         # f"SOL base spl Balance: {sol_base_balance} \n"
         # f"SOL quote spl Balance: {sol_quote_balance} \n"

@@ -21,6 +21,9 @@ class Config:
     with open('./abi/token.json', 'r') as abi_file:
         TOKEN_CONTRACT_ABI = json.load(abi_file)
     
+    with open('./abi/uniswapRouter.json', 'r') as abi_file:
+        ROUTER_CONTRACT_ABI = json.load(abi_file)
+    
     # WHEEL_CONTRACT_ADDRESS = {
     #     'base_mainnet': {
     #         'default': {

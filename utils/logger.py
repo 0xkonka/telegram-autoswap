@@ -1,6 +1,6 @@
 import logging
 
-logger = logging.getLogger('jade_roll_bot')
+logger = logging.getLogger('Wonka Auto Trade')
 logger.setLevel(logging.DEBUG)
 
 handler = logging.StreamHandler()
