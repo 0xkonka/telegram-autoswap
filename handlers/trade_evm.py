@@ -68,6 +68,10 @@ def evm_trade_handler(bot: Client):
     async def on_evm_stop_auto_swap(client: Client, callback_query: CallbackQuery):
         user_id = callback_query.from_user.id
         await stop_auto_swap(user_id, callback_query.message)
+    @bot.on_message(filters.command("stop_evm"))
+    async def on_evm_stop_auto_swap_command(client: Client, message: Message):
+        user_id = message.from_user.id
+        await stop_auto_swap(user_id, message)
 
 async def stop_auto_swap(user_id, message):
     user_evm_auto_swap_state[user_id] = False
