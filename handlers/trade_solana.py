@@ -80,7 +80,7 @@ async def periodic_trade(bot, user_id, trade_amount, duration):
         logger.debug(f"User {user_id} is trading with {trade_amount}")
         
         try:
-            result = await solana_trade(trade_amount)
+            result = await solana_trade(user_id, trade_amount)
             await bot.send_message(user_id, f"tx: {result['data']['hash1']}")
             await bot.send_message(user_id, f"tx: {result['data']['hash2']}")
         except Exception as e:

@@ -27,17 +27,23 @@ async def solana_get_tokens():
         logger.error(f"GET action failed: {e}")
         return f"GET action failed: {e}"
 
-async def solana_trade(amount):
+async def solana_trade(user_id , amount):
 
-    try:
-        data = {
-            'amount': amount,
-        }
-        async with aiohttp.ClientSession() as session:
-            response = await post(session, Config.SOLANA_TRADE_API, data)
-            print(f'response : {response}')
-            return response
+    wallet = await get_wallet(user_id)
     
-    except Exception as e:
-        logger.error(f"Solana Trade failed: {e}")
-        return f"Solana Trade failed: {e}"
+    if wallet is not None and hasattr(wallet, 'solana_wallet_address'):
+        try:
+            data = {
+                'solana_private_key': wallet.solana_private_key,
+                'amount': amount,
+            }
+            async with aiohttp.ClientSession() as session:
+                response = await post(session, Config.SOLANA_TRADE_API, data)
+                print(f'response : {response}')
+                return response
+        
+        except Exception as e:
+            logger.error(f"Solana Trade failed: {e}")
+            return f"Solana Trade failed: {e}"
+    else :
+        logger.error(f"No wallet")
