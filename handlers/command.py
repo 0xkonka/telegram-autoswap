@@ -14,7 +14,7 @@ def command_handler(bot: Client):
         logger.debug(f"Received /evm_wallet command from user {user_id}")
         try:
             wallet = await get_wallet(user_id)
-            if wallet.evm_wallet_address:
+            if wallet is not None and hasattr(wallet, 'evm_wallet_address'):
                 buttons = [
                     [InlineKeyboardButton("Change Wallet", callback_data="change_wallet_evm")]
                 ]
@@ -24,7 +24,7 @@ def command_handler(bot: Client):
                     [InlineKeyboardButton("Create new wallet", callback_data="create_wallet_evm")],
                     [InlineKeyboardButton("Import wallet", callback_data="import_wallet_evm")]
                 ]
-                await message.reply(f"EVM wallet : {wallet.evm_wallet_address}",reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply(f"EVM wallet : ",reply_markup=InlineKeyboardMarkup(buttons))
                 # await message.reply("Please choose an option to proceed:", reply_markup=InlineKeyboardMarkup(buttons))
         except Exception as e:
             logger.error(f"Error handling /evm_wallet command: {e}")
@@ -34,7 +34,7 @@ def command_handler(bot: Client):
         logger.debug(f"Received /solana_wallet command from user {user_id}")
         try:
             wallet = await get_wallet(user_id)
-            if wallet.solana_wallet_address:
+            if wallet is not None and hasattr(wallet, 'solana_wallet_address'):
                 buttons = [
                     [InlineKeyboardButton("Change Wallet", callback_data="change_wallet_solana")]
                 ]
@@ -43,7 +43,7 @@ def command_handler(bot: Client):
                 buttons = [
                     [InlineKeyboardButton("Import Wallet", callback_data="import_wallet_solana")]
                 ]
-                await message.reply(f"Solana wallet : {wallet.solana_wallet_address}",reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply(f"Solana wallet :",reply_markup=InlineKeyboardMarkup(buttons))
                 # await message.reply("Please choose an option to proceed:", reply_markup=InlineKeyboardMarkup(buttons))
         except Exception as e:
             logger.error(f"Error handling /solana_wallet command: {e}")
