@@ -3,7 +3,9 @@ from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from config import Config
 from utils.logger import logger
+from utils.balance import get_sol_trade_token_balance
 from trade.solana import solana_trade
+from utils.wallet import get_wallet
 
 user_solana_get_swap_amount_states = {}
 user_solana_swap_amount = {}
@@ -15,8 +17,11 @@ def solana_trade_handler(bot: Client):
     async def on_auto_trade_solana(client: Client, callback_query: CallbackQuery):
         await callback_query.message.delete()
         user_id = callback_query.from_user.id
+        wallet = await get_wallet(user_id)
         logger.debug(f"Enter Solana trade amount for user {user_id}")
         try:
+            sol_balance_message = await get_sol_trade_token_balance(wallet)
+            await callback_query.message.reply(sol_balance_message)
             await callback_query.message.reply("Please enter base swap amount:")
             user_solana_get_swap_amount_states[user_id] = "awaiting_solana_amount"
         except Exception as e:

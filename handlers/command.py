@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from utils.balance import get_gas_balance , get_evm_trade_token_balance
+from utils.balance import get_gas_balance , get_evm_trade_token_balance, get_sol_trade_token_balance
 from utils.wallet import get_wallet
 # from handlers.wallet_evm import proceed_after_wallet_connection
 from utils.logger import logger
@@ -63,7 +63,9 @@ def command_handler(bot: Client):
         user_id = message.from_user.id
         wallet = await get_wallet(user_id)
         evm_balance_message = await get_evm_trade_token_balance(wallet)
+        sol_balance_message = await get_sol_trade_token_balance(wallet)
         await message.reply(evm_balance_message)
+        await message.reply(sol_balance_message)
         
     @bot.on_message(filters.command("menu"))
     async def menu(client: Client, message: Message):
