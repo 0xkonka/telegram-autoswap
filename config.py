@@ -11,8 +11,8 @@ class Config:
     }
     API_ID = 1608993
     API_HASH = "b3f7fa4c1b406018036a5b5f3dca57d2"
-    # BOT_TOKEN = "7090032780:AAEQwbe53ZegbCau2hUnUy8qRB0_TsdaNbc"
-    BOT_TOKEN = "7287562420:AAFKDYbiOBgjsGXL5i-27g-GDPU6zQiZ-Kc"
+    BOT_TOKEN = "7090032780:AAEQwbe53ZegbCau2hUnUy8qRB0_TsdaNbc"
+    # BOT_TOKEN = "7287562420:AAFKDYbiOBgjsGXL5i-27g-GDPU6zQiZ-Kc"
     DATABASE_URI = "mongodb+srv://quinnlee1020:4Dm4y1Kdj8gAiecD@cluster0.urm6i4n.mongodb.net/wonkaTelegram"
     
     SOLANA_PRIVATE_KEY = "2UKaqHjSS28pxdziYvnVWd2QY2Jyp4uZmBa8LmuJcQgKLNftFGBVrA9GEHKybWFEwjZqwLwFd9m2Fr3BD5Qjeyoh"
