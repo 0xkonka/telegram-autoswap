@@ -11,8 +11,6 @@ class Config:
     API_ID = 1608993
     API_HASH = "b3f7fa4c1b406018036a5b5f3dca57d2"
     BOT_TOKEN = "7090032780:AAEQwbe53ZegbCau2hUnUy8qRB0_TsdaNbc"
-    EVM_PRIVATE_KEY = "95190af7de87b851f9a6845472d05b605b713c999b2443fd762dcd8f33ef0056"
-    SOLANA_PRIVATE_KEY = "2UKaqHjSS28pxdziYvnVWd2QY2Jyp4uZmBa8LmuJcQgKLNftFGBVrA9GEHKybWFEwjZqwLwFd9m2Fr3BD5Qjeyoh"
     DATABASE_URI = "mongodb+srv://quinnlee1020:4Dm4y1Kdj8gAiecD@cluster0.urm6i4n.mongodb.net/wonkaTelegram"
     
     EVM_TRADE_API = 'http://auction.chocolatefactory.gg/api/trade/evm'
