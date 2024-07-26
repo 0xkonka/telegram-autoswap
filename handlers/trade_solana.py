@@ -92,7 +92,7 @@ async def periodic_trade(bot, user_id, trade_amount, duration):
             logger.error(f"Error during solana_trade: {e}")
             await bot.send_message(user_id, "Error during solana_trade")
         
-        await asyncio.sleep(5)
+        await asyncio.sleep(30)
     
     user_solana_auto_swap_state[user_id] = False
     logger.debug(f"User {user_id} solana trading session completed")
